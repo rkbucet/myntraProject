@@ -1,0 +1,31 @@
+{% extends 'navbar/navbar.html' %}
+
+{% load static %}
+
+{% block title %}
+<title>Myntra</title>
+{% endblock %}
+
+{% block content %}
+<div class="items-container">
+    {% for product in products %}
+    <div class="item-container">
+          <img class="item-image" src="{{product.image.url}}" alt="">
+          <div class="rating">
+              Stars ⭐ | Rating Count
+          </div>
+          <div class="company-name">{{product.brand}}</div>
+          <div class="item-name">{{product.name}}</div>
+          <div class="price">
+              <span class="current-price">Rs {{product.price}}</span>
+              <span class="original-price"> Original Price </span>
+              <span class="discount">(Discount %)</span>
+          </div>
+          <button class="btn-add-bag" onclick="addToBag(${item.id})">Add to Bag</button>
+
+    </div>
+    {% endfor %}
+
+
+</div>
+{% endblock %}
